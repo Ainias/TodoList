@@ -1,0 +1,14 @@
+{
+  "name": "html-lernen",
+  "displayName": "HTML Lernen",
+  "version": "0.0.1",
+  "scripts": {
+    "prettier": "prettier --write 'src/**/*.js'",
+    "prettier-list-different": "prettier --list-different 'src/**/*.(js|ts)'"
+  },
+  "author": "T. Schumacher & S. Günther",
+  "dependencies": {},
+  "devDependencies": {
+    "prettier": "^2.3.2"
+  }
+}
