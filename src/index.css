@@ -1,0 +1,40 @@
+.languages {
+    font-weight: bold;
+    font-size: 2rem;
+    display: flex;
+    border-bottom: 1px solid #3e3d3d;
+}
+
+.translation {
+    display: flex;
+    border-top: 1px solid #e5e0e0;
+}
+.translation:first-child{
+    border-top: 0;
+}
+.word {
+    flex: 1;
+    padding: 0.2rem;
+}
+
+.word input {
+    border: 0;
+    box-shadow: none;
+    outline: 0px;
+    border-bottom: 1px solid transparent;
+    width: calc(100% - 0.4rem);
+    margin: 0.2rem;
+}
+
+.word input:focus-within {
+    border-bottom: 1px solid #3e3d3d;
+}
+
+* {
+    font-family: Helvetica;
+    box-sizing: border-box;
+}
+
+.word:first-child {
+    border-right: 1px solid #3e3d3d;
+}
