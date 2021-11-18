@@ -6,28 +6,30 @@
     <link rel='stylesheet' href='index.css'>
 </head>
 <body>
+<script src='index.js'></script>
 <div class='languages'>
     <span class='word'>Deutsch</span>
     <span class='word'>Chinesisch</span>
 </div>
 <div id='wordlist'>
-    <div class='translation'>
-        <span class='word'><input value='gut'></span>
-        <span class='word'><input value='hao'></span>
+    <div class='translation' id='translationtemplate'>
+        <span class='word'><input class='deutsch'></span>
+        <span class='word'><input class='chinesisch'></span>
     </div>
-    <div class='translation'>
-        <span class='word'><input value='du'></span>
-        <span class='word'><input value='ni'></span>
-    </div>
-    <div class='translation'>
-        <span class='word'><input value='hallo'></span>
-        <span class='word'><input value='ni hao'><img class='vocabimg'
-                                                      src='https://d1lpo0mp1gnxt5.cloudfront.net/wp-content/uploads/2016/03/nihao_cropped-600x294.png'
-                                                      alt='hmm'></span>
+    <!--    <div class='translation'>-->
+    <!--        <span class='word'><input value='du'></span>-->
+    <!--        <span class='word'><input value='ni'></span>-->
+    <!--    </div>-->
+    <!--    <div class='translation'>-->
+    <!--        <span class='word'><input value='hallo'></span>-->
+    <!--        <span class='word'><input value='ni hao'><img class='vocabimg'-->
+    <!--                                                      src='https://d1lpo0mp1gnxt5.cloudfront.net/wp-content/uploads/2016/03/nihao_cropped-600x294.png'-->
+    <!--                                                      alt='hmm'></span>-->
 
-    </div>
-    <a href='http://www.meetmandarin.com/resources/pinyin-chart.html'><img class='refimg'
-        src='https://cdn.icon-icons.com/icons2/916/PNG/512/Audio_icon-icons.com_71845.png'></a>
+</div>
+<button id='newWord'>+</button>
+<a href='http://www.meetmandarin.com/resources/pinyin-chart.html'><img class='refimg'
+                                                                       src='https://cdn.icon-icons.com/icons2/916/PNG/512/Audio_icon-icons.com_71845.png'></a>
 </div>
 
 </body>
