@@ -12,7 +12,7 @@ let translations = [
 ];
 
 function start() {
-    translations.push({ deutsch: 'hallo', chinesisch: 'nihao' });
+    load();
     wordList = document.getElementById('wordlist');
     translationTemplate = document.getElementById('translationtemplate');
     translationTemplate.remove();
@@ -20,19 +20,43 @@ function start() {
     newWord.addEventListener('click', addEmptyTranslation);
     for (let i = 0; i < translations.length; i++) {
         let currentTranslation = translations[i];
-        addTranslation(currentTranslation.deutsch, currentTranslation.chinesisch);
+        addTranslation(currentTranslation.deutsch, currentTranslation.chinesisch, i);
     }
 }
 
 window.onload = start;
 
-function addTranslation(deutsch, chinesisch) {
-    let newTranslation = translationTemplate.cloneNode(true);
+function addTranslation(deutsch, chinesisch, index) {
+    const newTranslation = translationTemplate.cloneNode(true);
     wordList.appendChild(newTranslation);
-    newTranslation.querySelector('.deutsch').value = deutsch;
-    newTranslation.querySelector('.chinesisch').value = chinesisch;
+    const deutschElement = newTranslation.querySelector('.deutsch');
+    deutschElement.value = deutsch;
+    const chinesischElement = newTranslation.querySelector('.chinesisch');
+    chinesischElement.value = chinesisch;
+    translations[index] = { deutsch: deutsch, chinesisch: chinesisch };
+    deutschElement.addEventListener('change', function (event) {
+        translations[index].deutsch = deutschElement.value;
+        save();
+    });
+    chinesischElement.addEventListener('change', function (event) {
+        translations[index].chinesisch = chinesischElement.value;
+        console.log(translations);
+        save();
+    });
 }
 
 function addEmptyTranslation() {
-    addTranslation('', '');
+    addTranslation('', '', translations.length);
+}
+
+function save() {
+    let jsonTranslation = JSON.stringify(translations);
+    localStorage.setItem('translations', jsonTranslation);
+}
+
+function load() {
+    let jsonTranslation = localStorage.getItem('translations');
+    if (jsonTranslation !== null) {
+        translations = JSON.parse(jsonTranslation);
+    }
 }
