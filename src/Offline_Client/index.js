@@ -12,6 +12,7 @@ let translations = [
 ];
 
 function start() {
+    load();
     wordList = document.getElementById('wordlist');
     translationTemplate = document.getElementById('translationtemplate');
     translationTemplate.remove();
@@ -22,6 +23,8 @@ function start() {
         addTranslation(currentTranslation.deutsch, currentTranslation.chinesisch, i);
     }
 }
+
+window.onload = start;
 
 function addTranslation(deutsch, chinesisch, index) {
     const newTranslation = translationTemplate.cloneNode(true);
@@ -52,14 +55,8 @@ function save() {
 }
 
 function load() {
-    fetch('/vocablist')
-        .then(function (result) {
-            return result.json();
-        })
-        .then(function (result2) {
-            translations = result2;
-            start();
-        });
+    let jsonTranslation = localStorage.getItem('translations');
+    if (jsonTranslation !== null) {
+        translations = JSON.parse(jsonTranslation);
+    }
 }
-
-window.onload = load;
